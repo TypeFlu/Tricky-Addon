@@ -59,9 +59,9 @@ export async function fetchAppList() {
     output.on('exit', async () => {
         // Create appEntries array contain { appName, packageName }
         appEntries = await Promise.all(installedPackages.map(async (packageName) => {
-            if (appNameMap[packageName]) {
+            if (appNameMap[packageName].trim() !== '') {
                 return {
-                    appName: appNameMap[packageName],
+                    appName: appNameMap[packageName].trim(),
                     packageName
                 };
             }
@@ -84,7 +84,7 @@ export async function fetchAppList() {
                                 { env: { PATH: `$PATH:${basePath}/common:/data/data/com.termux/files/usr/bin` } });
                 output.stdout.on('data', (data) => {
                     resolve({
-                        appName: data,
+                        appName: data.trim() === '' ? packageName : data.trim(),
                         packageName
                     });
                 });
