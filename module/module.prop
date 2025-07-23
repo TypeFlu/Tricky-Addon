@@ -1,7 +1,7 @@
 id=TA_utl
 name=Tricky Addon - Update Target List
 version=v4.0
-versionCode=538
+versionCode=572
 author=KOWX712
 description=A WebUI to conifgure tricky store target.txt 
 updateJson=https://raw.githubusercontent.com/KOWX712/Tricky-Addon-Update-Target-List/main/update.json
